@@ -6,6 +6,7 @@ import { Container, Row, ListGroup } from "react-bootstrap";
 import Filter from "./Filter";
 import CatalogDescription from "../../components/CatalogDescription";
 import Loading from "../../components/Loading";
+import './css/catalog.css'
 
 function Catalog() {
   const [courses, setCourses] = useState([]);
@@ -187,22 +188,22 @@ function Catalog() {
 
   return (
     <React.Fragment>
-      <Container fluid>
-        <Row>
-          <CoursesWrapper>
-            <Filter
-              filterHandler={filterHandler}
-              searchCourseHandler={searchCourseHandler}
-              clearCardsHandler={clearCardsHandler}
-            />
-          </CoursesWrapper>
-          <CoursesWrapper>{courseCardsContent}</CoursesWrapper>
-          <CoursesWrapper>
+      <div className={'flex'}>
+        <Filter
+          filterHandler={filterHandler}
+          searchCourseHandler={searchCourseHandler}
+          clearCardsHandler={clearCardsHandler}
+        />
+      </div>
+      <div className={'content-course'}>{courseCardsContent}</div>
+      <Container >
+        <div className='dd'>
+          {/*<CoursesWrapper>
             {Object.keys(specificCourse).length !== 0 && (
               <CatalogDescription course={specificCourse} />
             )}
-          </CoursesWrapper>
-        </Row>
+          </CoursesWrapper>*/}
+        </div>
       </Container>
     </React.Fragment>
   );
